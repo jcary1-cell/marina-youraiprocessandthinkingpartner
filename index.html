@@ -1,32 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Synapse Log - Student AI Thought Chronicle</title>
+    <title>Marina - Your AI Process & Thinking Partner</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Font Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Font Inter & JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
-                        brand: {
-                            50: '#eef2ff',
-                            100: '#e0e7ff',
+                        marina: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        },
+                        indigoBrand: {
                             500: '#6366f1',
                             600: '#4f46e5',
                             700: '#4338ca',
-                            900: '#312e81',
                         }
                     }
                 }
@@ -34,206 +43,247 @@
         }
     </script>
     <style>
-        /* Custom scrollbar & visual touches */
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        /* Custom smooth scrollbars */
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
         ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
-        .dark ::-webkit-scrollbar-thumb { background: #334155; }
-        
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 9999px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
         .pulse-recording {
-            animation: pulse-red 1.5s infinite ease-in-out;
+            animation: pulse-teal 1.5s infinite ease-in-out;
         }
-        @keyframes pulse-red {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
-            50% { transform: scale(1.05); box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
+        @keyframes pulse-teal {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.7); }
+            50% { transform: scale(1.06); box-shadow: 0 0 0 14px rgba(20, 184, 166, 0); }
+        }
+
+        .wave-bar {
+            animation: wave 1.2s infinite ease-in-out alternate;
+        }
+        @keyframes wave {
+            0% { height: 6px; }
+            100% { height: 22px; }
         }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col antialiased selection:bg-brand-500 selection:text-white">
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col antialiased selection:bg-marina-500 selection:text-white">
 
-    <!-- Header / Navbar -->
-    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-40 px-4 lg:px-8 py-3 flex items-center justify-between">
-        <div class="flex items-center space-x-3">
-            <div class="p-2 bg-gradient-to-tr from-brand-600 to-cyan-500 rounded-xl text-white shadow-lg shadow-brand-500/20">
-                <i data-lucide="brain-circuit" class="w-6 h-6"></i>
+    <!-- Top Compact Header / Side-by-Side Dock Bar -->
+    <header class="border-b border-slate-800/80 bg-slate-900/90 backdrop-blur sticky top-0 z-40 px-3 lg:px-5 py-2.5 flex items-center justify-between">
+        <!-- Brand Title & Tagline -->
+        <div class="flex items-center space-x-2.5">
+            <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-marina-600 via-teal-500 to-indigo-500 p-0.5 shadow-md shadow-marina-500/20 flex items-center justify-center">
+                <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
+                    <i data-lucide="waves" class="w-4 h-4 text-marina-400"></i>
+                </div>
             </div>
             <div>
-                <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
-                    Synapse Log
-                    <span class="text-xs font-normal px-2 py-0.5 rounded-full bg-brand-500/10 text-brand-400 border border-brand-500/20">AI Process Chronicle</span>
-                </h1>
-                <p class="text-xs text-slate-400 hidden sm:block">Metacognitive Capture & Thought Partner for Building with AI</p>
+                <div class="flex items-center gap-1.5">
+                    <span class="text-sm font-extrabold tracking-tight text-white">Marina</span>
+                    <span class="text-[10px] font-medium px-1.5 py-0.2 rounded-md bg-marina-500/10 text-marina-400 border border-marina-500/20">AI Partner</span>
+                </div>
+                <p class="text-[10px] text-slate-400 font-medium hidden sm:block">Side-by-Side Metacognition Companion</p>
             </div>
         </div>
 
-        <!-- Project Title Input & Controls -->
-        <div class="flex items-center space-x-3">
-            <div class="hidden md:flex items-center bg-slate-800/80 rounded-lg px-3 py-1.5 border border-slate-700/60 focus-within:border-brand-500 transition">
-                <i data-lucide="folder-kanban" class="w-4 h-4 text-slate-400 mr-2"></i>
-                <input type="text" id="projectTitle" value="My AI Building Journey" class="bg-transparent text-sm text-slate-200 focus:outline-none w-48 font-medium" placeholder="Project Name...">
+        <!-- Right Side Quick Actions -->
+        <div class="flex items-center space-x-2">
+            <!-- Project Title Field -->
+            <div class="flex items-center bg-slate-800/80 rounded-lg px-2.5 py-1 border border-slate-700/60 focus-within:border-marina-500 transition max-w-[140px] sm:max-w-[200px]">
+                <i data-lucide="compass" class="w-3.5 h-3.5 text-slate-400 mr-1.5 shrink-0"></i>
+                <input type="text" id="projectTitle" value="Building My Project" class="bg-transparent text-xs text-slate-200 focus:outline-none w-full font-medium truncate" placeholder="Project Name...">
             </div>
 
-            <button id="exportBtn" onclick="exportChronicle()" class="flex items-center space-x-1.5 text-xs bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 px-3 py-2 rounded-lg transition font-medium">
-                <i data-lucide="download" class="w-3.5 h-3.5"></i>
-                <span class="hidden sm:inline">Export Log</span>
+            <button onclick="generateProcessSummary()" title="Synthesize Portfolio Report" class="flex items-center space-x-1 text-xs bg-gradient-to-r from-marina-600 to-indigo-600 hover:from-marina-500 hover:to-indigo-500 text-white px-2.5 py-1.5 rounded-lg shadow-md transition font-medium shrink-0">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                <span class="hidden md:inline">Synthesize</span>
             </button>
 
-            <button id="summarizeAllBtn" onclick="generateProcessSummary()" class="flex items-center space-x-1.5 text-xs bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white px-3 py-2 rounded-lg shadow-md transition font-medium">
-                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-                <span>Synthesize Process</span>
+            <button onclick="exportChronicle()" title="Export Markdown Log" class="p-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded-lg transition shrink-0">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i>
             </button>
         </div>
     </header>
 
-    <!-- Main Container -->
-    <main class="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 p-4 lg:p-6 max-w-[1700px] mx-auto w-full">
+    <!-- Side-by-Side Split View Workspace Notice -->
+    <div id="sideBySideBar" class="bg-slate-900/60 border-b border-slate-800/60 px-4 py-1.5 flex items-center justify-between text-[11px] text-slate-400">
+        <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Docked alongside your working browser tab (ChatGPT, Claude, Docs, Code)</span>
+        </div>
+        <button onclick="document.getElementById('sideBySideBar').remove()" class="text-slate-500 hover:text-slate-300">
+            <i data-lucide="x" class="w-3 h-3"></i>
+        </button>
+    </div>
+
+    <!-- Main Side-by-Side Companion Layout -->
+    <main class="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-4 p-3 sm:p-4 max-w-[1600px] mx-auto w-full">
         
-        <!-- LEFT COLUMN: Quick Thought Capture Dock (Width: 5 cols on lg) -->
-        <section class="lg:col-span-5 flex flex-col space-y-4">
+        <!-- LEFT PANEL: "Talk to Marina" Quick Capture Dock (Cols 5/12 on LG) -->
+        <section class="lg:col-span-5 flex flex-col space-y-3">
             
-            <!-- Quick Capture Header & Stage Selector -->
-            <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-5 shadow-xl backdrop-blur">
-                <div class="flex items-center justify-between mb-4">
-                    <h2 class="text-sm font-semibold text-slate-200 uppercase tracking-wider flex items-center gap-2">
-                        <i data-lucide="pen-tool" class="w-4 h-4 text-brand-400"></i>
-                        Capture Thought
-                    </h2>
-                    <span id="recordingStatus" class="text-xs text-slate-400 flex items-center gap-1.5">
+            <!-- Voice-First Companion Card -->
+            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 shadow-xl backdrop-blur flex flex-col space-y-3">
+                
+                <!-- Card Header -->
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <div class="p-1.5 bg-marina-500/10 text-marina-400 rounded-lg border border-marina-500/20">
+                            <i data-lucide="mic-vocal" class="w-4 h-4"></i>
+                        </div>
+                        <h2 class="text-xs font-bold text-slate-200 uppercase tracking-wider">Quick Speak & Capture</h2>
+                    </div>
+                    <span id="recordingStatus" class="text-[11px] text-slate-400 flex items-center gap-1">
                         <span class="w-2 h-2 rounded-full bg-slate-500"></span> Ready
                     </span>
                 </div>
 
-                <!-- Workflow Stage Selectors -->
-                <div class="mb-4">
-                    <label class="block text-xs font-medium text-slate-400 mb-2">Cognitive Stage:</label>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="stageButtonGroup">
-                        <button onclick="setStage('Ideation')" data-stage="Ideation" class="stage-btn active text-xs p-2 rounded-xl border border-brand-500/50 bg-brand-500/10 text-brand-300 font-medium flex items-center justify-center gap-1.5 transition">
+                <!-- Big Conversational Voice Mic Control Button -->
+                <div class="bg-slate-950/80 rounded-xl p-3 border border-slate-800 flex items-center justify-between gap-3">
+                    <div class="flex items-center space-x-3 flex-1 min-w-0">
+                        <button id="micToggleBtn" onclick="toggleVoiceRecording()" class="p-3 bg-marina-600 hover:bg-marina-500 text-white rounded-xl shadow-lg shadow-marina-600/30 transition-all focus:outline-none flex items-center justify-center shrink-0">
+                            <i data-lucide="mic" id="micIcon" class="w-5 h-5"></i>
+                        </button>
+                        <div class="truncate">
+                            <div class="text-xs font-semibold text-slate-100" id="voiceHeading">"Hey Marina, jot this down..."</div>
+                            <div class="text-[11px] text-slate-400 truncate" id="voiceSub">Tap mic and speak naturally while working</div>
+                        </div>
+                    </div>
+
+                    <!-- Voice Waveform Animation -->
+                    <div id="audioWave" class="hidden flex items-end space-x-1 h-6 shrink-0 px-2">
+                        <span class="w-1 bg-marina-400 rounded wave-bar" style="animation-delay: 0.1s;"></span>
+                        <span class="w-1 bg-marina-400 rounded wave-bar" style="animation-delay: 0.3s;"></span>
+                        <span class="w-1 bg-marina-400 rounded wave-bar" style="animation-delay: 0.2s;"></span>
+                        <span class="w-1 bg-marina-400 rounded wave-bar" style="animation-delay: 0.4s;"></span>
+                    </div>
+                </div>
+
+                <!-- Quick Speak Preset Chips (Quick Starters for students) -->
+                <div>
+                    <span class="text-[10px] text-slate-400 font-medium block mb-1.5">Quick Starters:</span>
+                    <div class="flex flex-wrap gap-1.5">
+                        <button onclick="setQuickStarter('Okay Marina, I\'m asking AI to generate...')" class="text-[10px] bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 border border-slate-700/60 px-2 py-1 rounded-md transition">
+                            "I'm asking AI to..."
+                        </button>
+                        <button onclick="setQuickStarter('Wait, the AI gave me an error / weird result: ')" class="text-[10px] bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 border border-slate-700/60 px-2 py-1 rounded-md transition">
+                            "AI output error..."
+                        </button>
+                        <button onclick="setQuickStarter('Now I am testing if this code/answer actually works...')" class="text-[10px] bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 border border-slate-700/60 px-2 py-1 rounded-md transition">
+                            "Testing AI code..."
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Cognitive Stage Selector Chips -->
+                <div>
+                    <label class="block text-[11px] font-medium text-slate-400 mb-1.5">Stage of Work:</label>
+                    <div class="grid grid-cols-3 gap-1.5" id="stageButtonGroup">
+                        <button onclick="setStage('Ideation')" data-stage="Ideation" class="stage-btn active text-[11px] py-1.5 px-2 rounded-lg border border-marina-500/50 bg-marina-500/10 text-marina-300 font-medium flex items-center justify-center gap-1 transition truncate">
                             💡 Ideation
                         </button>
-                        <button onclick="setStage('Prompting')" data-stage="Prompting" class="stage-btn text-xs p-2 rounded-xl border border-slate-700 bg-slate-800/80 text-slate-400 hover:border-slate-600 font-medium flex items-center justify-center gap-1.5 transition">
+                        <button onclick="setStage('Prompting')" data-stage="Prompting" class="stage-btn text-[11px] py-1.5 px-2 rounded-lg border border-slate-800 bg-slate-800/50 text-slate-400 hover:border-slate-700 font-medium flex items-center justify-center gap-1 transition truncate">
                             📐 Prompting
                         </button>
-                        <button onclick="setStage('Execution')" data-stage="Execution" class="stage-btn text-xs p-2 rounded-xl border border-slate-700 bg-slate-800/80 text-slate-400 hover:border-slate-600 font-medium flex items-center justify-center gap-1.5 transition">
+                        <button onclick="setStage('Execution')" data-stage="Execution" class="stage-btn text-[11px] py-1.5 px-2 rounded-lg border border-slate-800 bg-slate-800/50 text-slate-400 hover:border-slate-700 font-medium flex items-center justify-center gap-1 transition truncate">
                             🤖 Orchestration
                         </button>
-                        <button onclick="setStage('Critique')" data-stage="Critique" class="stage-btn text-xs p-2 rounded-xl border border-slate-700 bg-slate-800/80 text-slate-400 hover:border-slate-600 font-medium flex items-center justify-center gap-1.5 transition">
+                        <button onclick="setStage('Critique')" data-stage="Critique" class="stage-btn text-[11px] py-1.5 px-2 rounded-lg border border-slate-800 bg-slate-800/50 text-slate-400 hover:border-slate-700 font-medium flex items-center justify-center gap-1 transition truncate">
                             🔍 Verification
                         </button>
-                        <button onclick="setStage('Reflection')" data-stage="Reflection" class="stage-btn text-xs p-2 rounded-xl border border-slate-700 bg-slate-800/80 text-slate-400 hover:border-slate-600 font-medium flex items-center justify-center gap-1.5 transition col-span-2 sm:col-span-1">
-                            🎯 Reflection
+                        <button onclick="setStage('Reflection')" data-stage="Reflection" class="stage-btn text-[11px] py-1.5 px-2 rounded-lg border border-slate-800 bg-slate-800/50 text-slate-400 hover:border-slate-700 font-medium flex items-center justify-center gap-1 transition col-span-2 truncate">
+                            🎯 Reflection & Lessons
                         </button>
                     </div>
                 </div>
 
-                <!-- Input Controls Tab (Voice vs Paste vs Note) -->
-                <div class="space-y-3">
-                    <!-- Voice Mic Control Bar -->
-                    <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-700/80 flex items-center justify-between">
-                        <div class="flex items-center space-x-3">
-                            <button id="micToggleBtn" onclick="toggleVoiceRecording()" class="p-3 bg-brand-600 hover:bg-brand-500 text-white rounded-full shadow-lg transition-all focus:outline-none flex items-center justify-center">
-                                <i data-lucide="mic" id="micIcon" class="w-5 h-5"></i>
-                            </button>
-                            <div>
-                                <div class="text-xs font-semibold text-slate-200" id="voiceHeading">Tap Mic to Talk</div>
-                                <div class="text-[11px] text-slate-400" id="voiceSub">Describe what you're thinking, trying, or stuck on</div>
-                            </div>
-                        </div>
-                        <div id="audioWave" class="hidden flex items-center space-x-1 h-6">
-                            <span class="w-1 h-3 bg-red-500 animate-pulse rounded"></span>
-                            <span class="w-1 h-6 bg-red-500 animate-pulse rounded delay-75"></span>
-                            <span class="w-1 h-4 bg-red-500 animate-pulse rounded delay-150"></span>
-                            <span class="w-1 h-2 bg-red-500 animate-pulse rounded"></span>
-                        </div>
+                <!-- Main Text Thought Input -->
+                <div>
+                    <div class="flex items-center justify-between mb-1">
+                        <label class="text-[11px] text-slate-400">Captured Thought / Action Note:</label>
+                        <button onclick="clearInput()" class="text-[10px] text-slate-500 hover:text-slate-300">Clear</button>
                     </div>
-
-                    <!-- Main Text Box for Reflection / Voice Transcript -->
-                    <div>
-                        <div class="flex items-center justify-between mb-1">
-                            <label class="text-xs text-slate-400">Your Thought / Metacognitive Note:</label>
-                            <button onclick="clearInput()" class="text-[11px] text-slate-500 hover:text-slate-300">Clear</button>
-                        </div>
-                        <textarea id="thoughtInput" rows="4" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl p-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-brand-500 transition resize-none font-sans" placeholder="E.g., 'I realized Gemini didn't know the exact library version I was using, so I need to specify Python 3.11 with FastAPI...'"></textarea>
-                    </div>
-
-                    <!-- Collapsible Prompt & Output Snippet Paste Box -->
-                    <details class="group bg-slate-900/50 border border-slate-700/50 rounded-xl overflow-hidden">
-                        <summary class="flex items-center justify-between p-3 cursor-pointer text-xs font-medium text-slate-300 select-none hover:bg-slate-800/40">
-                            <span class="flex items-center gap-1.5">
-                                <i data-lucide="terminal" class="w-3.5 h-3.5 text-cyan-400"></i>
-                                Include AI Prompt & Output Snippet (Optional)
-                            </span>
-                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400 group-open:rotate-180 transition-transform"></i>
-                        </summary>
-                        <div class="p-3 space-y-2 border-t border-slate-800">
-                            <div>
-                                <label class="text-[11px] text-slate-400 block mb-1">The Prompt You Used:</label>
-                                <input type="text" id="promptInput" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs font-mono text-cyan-300 placeholder-slate-600 focus:outline-none focus:border-cyan-500" placeholder="e.g., Act as a senior developer and refactor this loop...">
-                            </div>
-                            <div>
-                                <label class="text-[11px] text-slate-400 block mb-1">Key Gemini Output / Code:</label>
-                                <textarea id="outputInput" rows="2" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs font-mono text-emerald-300 placeholder-slate-600 focus:outline-none focus:border-emerald-500 resize-none" placeholder="e.g., Gemini suggested using Array.prototype.reduce()..."></textarea>
-                            </div>
-                        </div>
-                    </details>
-
-                    <!-- Save / Analyze Button -->
-                    <button id="addLogBtn" onclick="addChronicleEntry()" class="w-full py-2.5 bg-brand-600 hover:bg-brand-500 text-white font-medium text-sm rounded-xl shadow-lg shadow-brand-600/30 transition flex items-center justify-center gap-2">
-                        <i data-lucide="plus-circle" class="w-4 h-4"></i>
-                        <span>Log Thought & Analyze Metacognition</span>
-                    </button>
+                    <textarea id="thoughtInput" rows="3" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-marina-500 transition resize-none font-sans" placeholder="Tell Marina what you're doing right now. E.g., 'I asked ChatGPT to write a function, but I had to specify Python 3.11 because it used deprecated code...'"></textarea>
                 </div>
+
+                <!-- Collapsible AI Prompt & Code Paste Container -->
+                <details class="group bg-slate-950/60 border border-slate-800 rounded-xl overflow-hidden">
+                    <summary class="flex items-center justify-between p-2.5 cursor-pointer text-xs font-medium text-slate-300 select-none hover:bg-slate-800/40">
+                        <span class="flex items-center gap-1.5 text-[11px]">
+                            <i data-lucide="code-2" class="w-3.5 h-3.5 text-marina-400"></i>
+                            Paste Prompt or AI Snippet (Optional)
+                        </span>
+                        <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="p-2.5 space-y-2 border-t border-slate-800 bg-slate-950">
+                        <div>
+                            <label class="text-[10px] text-slate-400 block mb-1">Prompt you sent to AI:</label>
+                            <input type="text" id="promptInput" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2 text-xs font-mono text-cyan-300 placeholder-slate-600 focus:outline-none focus:border-cyan-500" placeholder="e.g., Create a responsive navigation bar in Tailwind...">
+                        </div>
+                        <div>
+                            <label class="text-[10px] text-slate-400 block mb-1">AI Output / Snippet:</label>
+                            <textarea id="outputInput" rows="2" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2 text-xs font-mono text-emerald-300 placeholder-slate-600 focus:outline-none focus:border-emerald-500 resize-none" placeholder="e.g., Snippet generated by ChatGPT..."></textarea>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Submit / Log Button -->
+                <button id="addLogBtn" onclick="addChronicleEntry()" class="w-full py-2.5 bg-gradient-to-r from-marina-600 to-teal-600 hover:from-marina-500 hover:to-teal-500 text-white font-semibold text-xs rounded-xl shadow-lg shadow-marina-600/25 transition flex items-center justify-center gap-2">
+                    <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                    <span>Log Thought & Get Marina Insights</span>
+                </button>
             </div>
 
-            <!-- Gemini AI Thought Partner Prompt & Voice Response Box -->
-            <div class="bg-gradient-to-b from-slate-800/80 to-slate-900/80 border border-indigo-500/30 rounded-2xl p-5 shadow-xl flex-1 flex flex-col justify-between">
+            <!-- Marina AI Thinking Partner Live Feedback Box -->
+            <div class="bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-indigo-500/30 rounded-2xl p-4 shadow-xl flex flex-col justify-between space-y-3">
                 <div>
-                    <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center justify-between mb-2">
                         <div class="flex items-center space-x-2">
-                            <span class="p-1.5 bg-indigo-500/20 text-indigo-400 rounded-lg">
-                                <i data-lucide="bot" class="w-4 h-4"></i>
-                            </span>
-                            <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-300">Metacognitive Co-Thinker</h3>
+                            <div class="w-6 h-6 rounded-lg bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 flex items-center justify-center">
+                                <i data-lucide="sparkle" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-300">Marina's Reflection Coach</h3>
                         </div>
-                        <span class="text-[10px] bg-indigo-500/10 text-indigo-400 px-2 py-0.5 rounded-full border border-indigo-500/20">Gemini Powered</span>
+                        <span class="text-[10px] text-indigo-400 font-medium">Real-time Metacognition</span>
                     </div>
 
-                    <div id="aiThoughtPartnerBox" class="text-sm text-slate-300 space-y-2 leading-relaxed bg-slate-900/60 p-3.5 rounded-xl border border-slate-700/60 min-h-[90px] flex items-center">
-                        <p class="text-xs text-slate-400 italic">
-                            "I'm listening to your workflow! Log a thought or prompt above, and I will highlight your thinking strategy and ask reflective follow-up questions."
+                    <div id="aiThoughtPartnerBox" class="text-xs text-slate-300 leading-relaxed bg-slate-950/80 p-3 rounded-xl border border-slate-800 min-h-[80px] flex items-center">
+                        <p class="text-slate-400 italic text-[11px]">
+                            "Hi! I'm Marina, your AI thinking partner. Dictate or type what you're trying out. I'll highlight your metacognitive strategies and ask reflective questions to sharpen your reasoning."
                         </p>
                     </div>
                 </div>
 
-                <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
-                    <button id="ttsBtn" onclick="speakAIResponse()" class="text-xs text-indigo-400 hover:text-indigo-300 flex items-center gap-1.5 font-medium disabled:opacity-40" disabled>
+                <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between">
+                    <button id="ttsBtn" onclick="speakAIResponse()" class="text-[11px] text-indigo-400 hover:text-indigo-300 flex items-center gap-1.5 font-medium disabled:opacity-40" disabled>
                         <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
-                        <span>Read Voice Feedback</span>
+                        <span>Read Marina's Voice</span>
                     </button>
 
-                    <button onclick="askReflectiveQuestion()" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition">
-                        <i data-lucide="help-circle" class="w-3.5 h-3.5 text-brand-400"></i>
-                        <span>Ask Probing Question</span>
+                    <button onclick="askReflectiveQuestion()" class="text-[11px] bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 px-2.5 py-1 rounded-lg flex items-center gap-1 transition">
+                        <i data-lucide="help-circle" class="w-3.5 h-3.5 text-marina-400"></i>
+                        <span>Probing Question</span>
                     </button>
                 </div>
             </div>
 
         </section>
 
-        <!-- RIGHT COLUMN: Living Process Chronicle Timeline (Width: 7 cols on lg) -->
-        <section class="lg:col-span-7 flex flex-col space-y-4">
+        <!-- RIGHT PANEL: Live Process Chronicle Feed (Cols 7/12 on LG) -->
+        <section class="lg:col-span-7 flex flex-col space-y-3">
             
-            <!-- Timeline Toolbar & Filter -->
-            <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-3 shadow-md">
+            <!-- Feed Toolbar -->
+            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-3 flex flex-wrap items-center justify-between gap-2 shadow-md">
                 <div class="flex items-center space-x-2">
-                    <i data-lucide="history" class="w-4 h-4 text-brand-400"></i>
-                    <h2 class="text-sm font-semibold text-slate-200">Process Feed</h2>
-                    <span id="entryCountBadge" class="text-xs bg-slate-700 text-slate-300 px-2 py-0.5 rounded-full">0 entries</span>
+                    <i data-lucide="history" class="w-4 h-4 text-marina-400"></i>
+                    <h2 class="text-xs font-semibold text-slate-200">Process Feed Log</h2>
+                    <span id="entryCountBadge" class="text-[10px] bg-slate-800 text-slate-300 border border-slate-700 px-2 py-0.5 rounded-full font-medium">0 entries</span>
                 </div>
 
-                <!-- Filters -->
-                <div class="flex items-center space-x-2">
-                    <span class="text-xs text-slate-400">Filter:</span>
-                    <select id="filterStage" onchange="renderTimeline()" class="bg-slate-900 border border-slate-700 text-xs text-slate-300 rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-brand-500">
+                <!-- Stage Filter Dropdown -->
+                <div class="flex items-center space-x-1.5">
+                    <span class="text-[10px] text-slate-400">Filter:</span>
+                    <select id="filterStage" onchange="renderTimeline()" class="bg-slate-950 border border-slate-800 text-[11px] text-slate-300 rounded-lg px-2 py-1 focus:outline-none focus:border-marina-500">
                         <option value="ALL">All Stages</option>
                         <option value="Ideation">💡 Ideation</option>
                         <option value="Prompting">📐 Prompting</option>
@@ -244,16 +294,16 @@
                 </div>
             </div>
 
-            <!-- Timeline Feed List -->
-            <div id="timelineContainer" class="flex-1 overflow-y-auto space-y-4 pr-1 max-h-[78vh]">
-                <!-- Empty State -->
-                <div id="emptyState" class="bg-slate-800/30 border border-dashed border-slate-700 rounded-2xl p-12 text-center flex flex-col items-center justify-center text-slate-400">
-                    <div class="p-4 bg-slate-800/80 rounded-full mb-3 text-slate-500">
-                        <i data-lucide="layers" class="w-8 h-8"></i>
+            <!-- Feed Items Stream -->
+            <div id="timelineContainer" class="flex-1 overflow-y-auto space-y-3 pr-1 max-h-[calc(100vh-170px)]">
+                <!-- Initial Empty State -->
+                <div id="emptyState" class="bg-slate-900/40 border border-dashed border-slate-800 rounded-2xl p-8 text-center flex flex-col items-center justify-center text-slate-400">
+                    <div class="p-3 bg-slate-800/80 rounded-2xl mb-2 text-slate-500">
+                        <i data-lucide="layers" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-base font-semibold text-slate-200 mb-1">Your Thought Chronicle is Empty</h3>
-                    <p class="text-xs text-slate-400 max-w-md mb-4">
-                        Speak into the microphone or type a note on the left to begin documenting how you navigate, prompt, and build with AI.
+                    <h3 class="text-xs font-semibold text-slate-200 mb-1">Your Thinking Log is Empty</h3>
+                    <p class="text-[11px] text-slate-400 max-w-xs mb-3">
+                        Speak into the microphone or type on the left to start recording your AI workflow notes in real time.
                     </p>
                 </div>
             </div>
@@ -261,44 +311,44 @@
         </section>
     </main>
 
-    <!-- Synthesis Modal (Process Summary Report) -->
-    <div id="summaryModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-3xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
-            <div class="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-800/50">
+    <!-- Synthesis Modal (Marina's Portfolio Process Report) -->
+    <div id="summaryModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-2xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+            <div class="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-900/80">
                 <div class="flex items-center space-x-2">
-                    <i data-lucide="sparkles" class="w-5 h-5 text-brand-400"></i>
-                    <h3 class="font-bold text-slate-100 text-base">Synthesized AI Process Portfolio Report</h3>
+                    <i data-lucide="sparkles" class="w-4 h-4 text-marina-400"></i>
+                    <h3 class="font-bold text-slate-100 text-xs sm:text-sm">Marina Metacognitive Process Report</h3>
                 </div>
                 <button onclick="closeSummaryModal()" class="text-slate-400 hover:text-white p-1 rounded-lg">
-                    <i data-lucide="x" class="w-5 h-5"></i>
+                    <i data-lucide="x" class="w-4 h-4"></i>
                 </button>
             </div>
-            <div id="summaryModalBody" class="p-6 overflow-y-auto space-y-4 text-slate-300 text-sm leading-relaxed font-sans">
-                <!-- Dynamically filled -->
+            <div id="summaryModalBody" class="p-5 overflow-y-auto space-y-3 text-slate-300 text-xs leading-relaxed font-sans">
+                <!-- Dynamically populated -->
             </div>
-            <div class="p-4 border-t border-slate-800 bg-slate-900 flex justify-end space-x-3">
-                <button onclick="copySummaryToClipboard()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium rounded-xl flex items-center gap-1.5 transition">
+            <div class="p-3 border-t border-slate-800 bg-slate-950 flex justify-end space-x-2">
+                <button onclick="copySummaryToClipboard()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium rounded-xl flex items-center gap-1.5 transition">
                     <i data-lucide="copy" class="w-3.5 h-3.5"></i>
                     <span>Copy to Clipboard</span>
                 </button>
-                <button onclick="closeSummaryModal()" class="px-4 py-2 bg-brand-600 hover:bg-brand-500 text-white text-xs font-medium rounded-xl transition">
+                <button onclick="closeSummaryModal()" class="px-3 py-1.5 bg-marina-600 hover:bg-marina-500 text-white text-xs font-medium rounded-xl transition">
                     Done
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Application Script -->
+    <!-- Application Script Logic -->
     <script>
-        // Global State
+        // Global App State
         let entries = [];
         let activeStage = 'Ideation';
         let isRecording = false;
         let recognition = null;
         let lastAiFeedbackText = "";
-        const API_KEY = ""; // Blank API Key as per platform specs
+        const API_KEY = ""; // System injected Gemini key
 
-        // Initialize Speech Recognition if supported
+        // Initialize Speech Recognition for instant "Jot this down" voice capture
         if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
             recognition = new SpeechRecognition();
@@ -324,7 +374,7 @@
             };
         }
 
-        // Initialize Lucide Icons on Load
+        // Initialize App
         window.onload = function() {
             lucide.createIcons();
             loadFromLocalStorage();
@@ -333,37 +383,48 @@
 
         // Local Storage Sync
         function saveToLocalStorage() {
-            localStorage.setItem('synapse_entries', JSON.stringify(entries));
-            localStorage.setItem('synapse_project', document.getElementById('projectTitle').value);
+            localStorage.setItem('marina_entries', JSON.stringify(entries));
+            localStorage.setItem('marina_project', document.getElementById('projectTitle').value);
         }
 
         function loadFromLocalStorage() {
-            const savedEntries = localStorage.getItem('synapse_entries');
+            const savedEntries = localStorage.getItem('marina_entries');
             if (savedEntries) {
                 try { entries = JSON.parse(savedEntries); } catch(e) { entries = []; }
             }
-            const savedProject = localStorage.getItem('synapse_project');
+            const savedProject = localStorage.getItem('marina_project');
             if (savedProject) {
                 document.getElementById('projectTitle').value = savedProject;
             }
         }
 
-        // Workflow Stage Selector
+        // Set Workflow Stage
         function setStage(stage) {
             activeStage = stage;
             document.querySelectorAll('.stage-btn').forEach(btn => {
                 if (btn.dataset.stage === stage) {
-                    btn.className = "stage-btn active text-xs p-2 rounded-xl border border-brand-500/50 bg-brand-500/10 text-brand-300 font-medium flex items-center justify-center gap-1.5 transition";
+                    btn.className = "stage-btn active text-[11px] py-1.5 px-2 rounded-lg border border-marina-500/50 bg-marina-500/10 text-marina-300 font-medium flex items-center justify-center gap-1 transition truncate";
                 } else {
-                    btn.className = "stage-btn text-xs p-2 rounded-xl border border-slate-700 bg-slate-800/80 text-slate-400 hover:border-slate-600 font-medium flex items-center justify-center gap-1.5 transition";
+                    btn.className = "stage-btn text-[11px] py-1.5 px-2 rounded-lg border border-slate-800 bg-slate-800/50 text-slate-400 hover:border-slate-700 font-medium flex items-center justify-center gap-1 transition truncate";
                 }
             });
+        }
+
+        // Quick Preset Phrase Injector
+        function setQuickStarter(phrase) {
+            const input = document.getElementById('thoughtInput');
+            if (input.value.trim() === '') {
+                input.value = phrase;
+            } else {
+                input.value += ' ' + phrase;
+            }
+            input.focus();
         }
 
         // Voice Recording Toggle
         function toggleVoiceRecording() {
             if (!recognition) {
-                alert("Speech recognition is not supported in this browser. Please use Google Chrome or Microsoft Edge.");
+                alert("Voice capture is not supported in this browser. Please try Google Chrome or Microsoft Edge.");
                 return;
             }
             if (isRecording) {
@@ -377,11 +438,11 @@
             isRecording = true;
             try {
                 recognition.start();
-                document.getElementById('micToggleBtn').className = "p-3 bg-red-600 hover:bg-red-500 text-white rounded-full shadow-lg transition-all focus:outline-none flex items-center justify-center pulse-recording";
-                document.getElementById('voiceHeading').innerText = "Recording... Speak Freely";
-                document.getElementById('voiceSub').innerText = "Capturing your raw verbal thoughts into text";
+                document.getElementById('micToggleBtn').className = "p-3 bg-red-600 hover:bg-red-500 text-white rounded-xl shadow-lg transition-all focus:outline-none flex items-center justify-center pulse-recording";
+                document.getElementById('voiceHeading').innerText = "Marina is listening...";
+                document.getElementById('voiceSub').innerText = "Speak freely: 'Okay, so now I am doing this...'";
                 document.getElementById('audioWave').classList.remove('hidden');
-                document.getElementById('recordingStatus').innerHTML = '<span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span> Listening...';
+                document.getElementById('recordingStatus').innerHTML = '<span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span> Listening';
             } catch(e) {
                 console.error(e);
             }
@@ -392,9 +453,9 @@
             try {
                 recognition.stop();
             } catch(e){}
-            document.getElementById('micToggleBtn').className = "p-3 bg-brand-600 hover:bg-brand-500 text-white rounded-full shadow-lg transition-all focus:outline-none flex items-center justify-center";
-            document.getElementById('voiceHeading').innerText = "Tap Mic to Talk";
-            document.getElementById('voiceSub').innerText = "Describe what you're thinking, trying, or stuck on";
+            document.getElementById('micToggleBtn').className = "p-3 bg-marina-600 hover:bg-marina-500 text-white rounded-xl shadow-lg shadow-marina-600/30 transition-all focus:outline-none flex items-center justify-center";
+            document.getElementById('voiceHeading').innerText = "\"Hey Marina, jot this down...\"";
+            document.getElementById('voiceSub').innerText = "Tap mic and speak naturally while working";
             document.getElementById('audioWave').classList.add('hidden');
             document.getElementById('recordingStatus').innerHTML = '<span class="w-2 h-2 rounded-full bg-slate-500"></span> Ready';
         }
@@ -405,14 +466,14 @@
             document.getElementById('outputInput').value = '';
         }
 
-        // Add Entry To Chronicle
+        // Add Log Entry to Marina Stream
         async function addChronicleEntry() {
             const thoughtText = document.getElementById('thoughtInput').value.trim();
             const promptText = document.getElementById('promptInput').value.trim();
             const outputText = document.getElementById('outputInput').value.trim();
 
             if (!thoughtText && !promptText) {
-                alert("Please articulate a thought or include an AI prompt first.");
+                alert("Please dictate or type a thought note first.");
                 return;
             }
 
@@ -432,34 +493,33 @@
             renderTimeline();
             clearInput();
 
-            // Trigger Realtime Gemini Metacognitive Analysis
+            // Trigger Gemini Thinking Partner Response
             analyzeMetacognitionWithGemini(newEntry);
         }
 
-        // Gemini API: Realtime Metacognitive Analysis & Co-Thinking
+        // Gemini API: Real-time Thinking Partner Feedback
         async function analyzeMetacognitionWithGemini(entry) {
             const box = document.getElementById('aiThoughtPartnerBox');
             box.innerHTML = `
                 <div class="flex items-center space-x-2 text-indigo-400 text-xs">
-                    <i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i>
-                    <span>Gemini is analyzing your metacognition & process...</span>
+                    <i data-lucide="loader-2" class="w-3.5 h-3.5 animate-spin"></i>
+                    <span>Marina is processing your thought...</span>
                 </div>
             `;
             lucide.createIcons();
 
-            const systemPrompt = `You are a world-class educational AI Thought Partner and Metacognition Coach. 
-Your goal is to help a student deeply understand their process as they build with AI tools.
-Examine the student's logged thought and prompt snippet.
-Provide a concise JSON response containing:
-1. "cognitiveStrategy": A 2-4 word tag summarizing their technique (e.g. "Step-by-Step Refinement", "Assumption Verification", "Context Decomposition", "Creative Brainstorming").
-2. "feedback": A brief, encouraging 2-sentence feedback highlighting why their approach works or what they noticed.
-3. "probingQuestion": One sharp, metacognitive question asking them *why* they chose this direction or *how* they will verify the AI output.`;
+            const systemPrompt = `You are Marina, an encouraging AI Thinking Partner & Metacognitive Coach for students.
+When a student jots down what they are doing, thinking, or prompting, analyze their thought.
+Return a structured JSON object with:
+1. "cognitiveStrategy": A 2-4 word tag identifying their thinking pattern (e.g., "Refining Context", "Verifying Output", "Deconstructing Bug", "Setting Boundaries").
+2. "feedback": A warm 1-2 sentence response validating their effort or insight.
+3. "probingQuestion": A single, sharp question encouraging deeper self-reflection on why they chose this strategy or how they will test the result.`;
 
             const userPrompt = `
 Stage: ${entry.stage}
-Student Reflection: "${entry.thought}"
-Prompt Used: "${entry.prompt}"
-AI Output/Snippet: "${entry.output}"
+Student Reflection Note: "${entry.thought}"
+Prompt Snippet: "${entry.prompt}"
+AI Output Snippet: "${entry.output}"
             `;
 
             const payload = {
@@ -492,55 +552,53 @@ AI Output/Snippet: "${entry.output}"
                 if (jsonText) {
                     const parsed = JSON.parse(jsonText);
                     
-                    // Attach to entry
                     entry.aiAnalysis = parsed;
                     saveToLocalStorage();
                     renderTimeline();
 
-                    // Display in AI Copilot Box
                     lastAiFeedbackText = `${parsed.feedback} ${parsed.probingQuestion}`;
                     box.innerHTML = `
-                        <div class="space-y-2">
+                        <div class="space-y-1.5 w-full">
                             <div class="flex items-center justify-between">
-                                <span class="text-[10px] font-bold uppercase tracking-wider bg-brand-500/20 text-brand-300 px-2 py-0.5 rounded border border-brand-500/30">
+                                <span class="text-[10px] font-bold uppercase tracking-wider bg-marina-500/20 text-marina-300 px-2 py-0.5 rounded border border-marina-500/30">
                                     Strategy: ${parsed.cognitiveStrategy}
                                 </span>
                             </div>
                             <p class="text-xs text-slate-200">${parsed.feedback}</p>
-                            <p class="text-xs text-indigo-300 font-medium italic border-l-2 border-indigo-400 pl-2 mt-1">
-                                🤔 "${parsed.probingQuestion}"
+                            <p class="text-[11px] text-indigo-300 font-medium italic border-l-2 border-indigo-400 pl-2 mt-1">
+                                🤔 Marina asks: "${parsed.probingQuestion}"
                             </p>
                         </div>
                     `;
 
                     document.getElementById('ttsBtn').disabled = false;
                 } else {
-                    box.innerHTML = `<p class="text-xs text-slate-400">Recorded entry! Log another thought as you keep working.</p>`;
+                    box.innerHTML = `<p class="text-xs text-slate-300">Thought logged into your timeline!</p>`;
                 }
             } catch (err) {
-                console.error("Gemini API call failed:", err);
-                box.innerHTML = `<p class="text-xs text-slate-300">Thought logged successfully!</p>`;
+                console.error("Gemini API call error:", err);
+                box.innerHTML = `<p class="text-xs text-slate-300">Thought saved to timeline!</p>`;
             }
         }
 
-        // Gemini TTS API: Read feedback aloud
+        // Gemini TTS API: Read Marina's feedback aloud
         async function speakAIResponse() {
             if (!lastAiFeedbackText) return;
 
             const ttsBtn = document.getElementById('ttsBtn');
             ttsBtn.disabled = true;
-            ttsBtn.innerHTML = `<i data-lucide="loader-2" class="w-3.5 h-3.5 animate-spin"></i> Generating Audio...`;
+            ttsBtn.innerHTML = `<i data-lucide="loader-2" class="w-3 h-3 animate-spin"></i> Speaking...`;
             lucide.createIcons();
 
             const payload = {
                 contents: [{
-                    parts: [{ text: `Say in a warm, encouraging voice: ${lastAiFeedbackText}` }]
+                    parts: [{ text: `Say in a gentle, warm voice: ${lastAiFeedbackText}` }]
                 }],
                 generationConfig: {
                     responseModalities: ["AUDIO"],
                     speechConfig: {
                         voiceConfig: {
-                            prebuiltVoiceConfig: { voiceName: "Zephyr" }
+                            prebuiltVoiceConfig: { voiceName: "Kore" }
                         }
                     }
                 }
@@ -573,12 +631,12 @@ AI Output/Snippet: "${entry.output}"
                 console.error("TTS Error:", e);
             } finally {
                 ttsBtn.disabled = false;
-                ttsBtn.innerHTML = `<i data-lucide="volume-2" class="w-3.5 h-3.5"></i> Read Voice Feedback`;
+                ttsBtn.innerHTML = `<i data-lucide="volume-2" class="w-3.5 h-3.5"></i> Read Marina's Voice`;
                 lucide.createIcons();
             }
         }
 
-        // Helper PCM to WAV Audio Converter
+        // Audio Helper utilities
         function base64ToInt16Array(base64) {
             const binaryString = atob(base64);
             const len = binaryString.length;
@@ -605,7 +663,7 @@ AI Output/Snippet: "${entry.output}"
             writeString(12, 'fmt ');
             view.setUint32(16, 16, true);
             view.setUint16(20, 1, true);
-            view.setUint16(22, 1, true); // Mono
+            view.setUint16(22, 1, true);
             view.setUint32(24, sampleRate, true);
             view.setUint32(28, sampleRate * 2, true);
             view.setUint16(32, 2, true);
@@ -621,13 +679,13 @@ AI Output/Snippet: "${entry.output}"
             return new Blob([view], { type: 'audio/wav' });
         }
 
-        // Ask dynamic reflective question
+        // Generate dynamic probing reflection question from Marina
         async function askReflectiveQuestion() {
             const box = document.getElementById('aiThoughtPartnerBox');
-            box.innerHTML = `<p class="text-xs text-indigo-400 flex items-center gap-1.5"><i data-lucide="loader-2" class="w-3.5 h-3.5 animate-spin"></i> Formulating reflective prompt...</p>`;
+            box.innerHTML = `<p class="text-xs text-indigo-400 flex items-center gap-1.5"><i data-lucide="loader-2" class="w-3.5 h-3.5 animate-spin"></i> Marina is formulating a thought question...</p>`;
             lucide.createIcons();
 
-            const prompt = "Ask a student building a software or creative project with AI tools a single, thought-provoking metacognitive question about how they evaluate the AI's suggestions vs their own intuition.";
+            const prompt = "Ask a student who is currently using AI tools a single, provocative metacognitive question about how they evaluate whether to trust or refine an AI response.";
 
             try {
                 const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${API_KEY}`, {
@@ -639,11 +697,11 @@ AI Output/Snippet: "${entry.output}"
                 const question = resData.candidates?.[0]?.content?.parts?.[0]?.text;
                 if (question) {
                     lastAiFeedbackText = question;
-                    box.innerHTML = `<p class="text-xs text-indigo-200 font-medium italic">🤔 "${question}"</p>`;
+                    box.innerHTML = `<p class="text-xs text-indigo-200 font-medium italic">🤔 Marina asks: "${question}"</p>`;
                     document.getElementById('ttsBtn').disabled = false;
                 }
             } catch(e) {
-                box.innerHTML = `<p class="text-xs text-slate-400">What is one thing you learned from your most recent prompt?</p>`;
+                box.innerHTML = `<p class="text-xs text-slate-300">How do you know the AI's explanation is completely accurate?</p>`;
             }
         }
 
@@ -660,9 +718,9 @@ AI Output/Snippet: "${entry.output}"
 
             if (filtered.length === 0) {
                 container.innerHTML = `
-                    <div class="bg-slate-800/30 border border-dashed border-slate-700 rounded-2xl p-10 text-center flex flex-col items-center justify-center text-slate-400">
-                        <i data-lucide="filter" class="w-8 h-8 text-slate-600 mb-2"></i>
-                        <p class="text-xs">No entries match this filter.</p>
+                    <div class="bg-slate-900/40 border border-dashed border-slate-800 rounded-2xl p-8 text-center flex flex-col items-center justify-center text-slate-400">
+                        <i data-lucide="filter" class="w-6 h-6 text-slate-600 mb-2"></i>
+                        <p class="text-xs">No entries match this filter stage.</p>
                     </div>
                 `;
                 lucide.createIcons();
@@ -678,11 +736,10 @@ AI Output/Snippet: "${entry.output}"
             };
 
             container.innerHTML = filtered.map(item => `
-                <div class="bg-slate-800/70 border border-slate-700/70 rounded-2xl p-4 shadow-lg transition hover:border-slate-600 relative group">
-                    <!-- Top Bar -->
+                <div class="bg-slate-900/80 border border-slate-800/90 rounded-2xl p-3.5 shadow-md transition hover:border-slate-700 relative group">
                     <div class="flex items-center justify-between mb-2">
                         <div class="flex items-center space-x-2">
-                            <span class="text-sm">${stageIcons[item.stage] || '📝'}</span>
+                            <span class="text-xs">${stageIcons[item.stage] || '📝'}</span>
                             <span class="text-xs font-semibold text-slate-200">${item.stage}</span>
                             <span class="text-[10px] text-slate-500">• ${item.timestamp}</span>
                         </div>
@@ -691,36 +748,33 @@ AI Output/Snippet: "${entry.output}"
                         </button>
                     </div>
 
-                    <!-- Student Thought Note -->
                     ${item.thought ? `
-                        <div class="text-xs text-slate-200 leading-relaxed font-sans mb-3 bg-slate-900/40 p-2.5 rounded-xl border border-slate-800">
+                        <div class="text-xs text-slate-200 leading-relaxed font-sans mb-2 bg-slate-950/60 p-2.5 rounded-xl border border-slate-800/80">
                             ${escapeHtml(item.thought)}
                         </div>
                     ` : ''}
 
-                    <!-- Code / Prompt Accordion Snippets -->
                     ${(item.prompt || item.output) ? `
-                        <div class="space-y-1.5 mb-3">
+                        <div class="space-y-1 mb-2">
                             ${item.prompt ? `
-                                <div class="bg-slate-950 p-2 rounded-lg border border-slate-800 font-mono text-[11px] text-cyan-300">
+                                <div class="bg-slate-950 p-2 rounded-lg border border-slate-800 font-mono text-[10px] text-cyan-300">
                                     <span class="text-slate-500 select-none">Prompt: </span>${escapeHtml(item.prompt)}
                                 </div>
                             ` : ''}
                             ${item.output ? `
-                                <div class="bg-slate-950 p-2 rounded-lg border border-slate-800 font-mono text-[11px] text-emerald-400/90 max-h-32 overflow-y-auto">
+                                <div class="bg-slate-950 p-2 rounded-lg border border-slate-800 font-mono text-[10px] text-emerald-400/90 max-h-24 overflow-y-auto">
                                     <span class="text-slate-500 select-none">AI Output: </span>${escapeHtml(item.output)}
                                 </div>
                             ` : ''}
                         </div>
                     ` : ''}
 
-                    <!-- Gemini Metacognitive Analysis Tag -->
                     ${item.aiAnalysis ? `
-                        <div class="mt-2 pt-2 border-t border-slate-700/50 flex flex-wrap items-center justify-between gap-2">
-                            <span class="text-[10px] bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 px-2 py-0.5 rounded-md font-medium">
+                        <div class="mt-2 pt-2 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-1.5">
+                            <span class="text-[9px] bg-marina-500/10 text-marina-300 border border-marina-500/20 px-1.5 py-0.5 rounded font-medium">
                                 Strategy: ${item.aiAnalysis.cognitiveStrategy}
                             </span>
-                            <span class="text-[11px] text-slate-400 italic">
+                            <span class="text-[10px] text-slate-400 italic truncate max-w-[280px]">
                                 "${item.aiAnalysis.probingQuestion}"
                             </span>
                         </div>
@@ -741,10 +795,10 @@ AI Output/Snippet: "${entry.output}"
             return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
         }
 
-        // Generate Comprehensive Process Portfolio Summary
+        // Generate Marina Synthesis Report
         async function generateProcessSummary() {
             if (entries.length === 0) {
-                alert("Please record a few thoughts in your log before generating a synthesis summary.");
+                alert("Please log a few thoughts with Marina before synthesizing a process report.");
                 return;
             }
 
@@ -753,9 +807,9 @@ AI Output/Snippet: "${entry.output}"
             modal.classList.remove('hidden');
 
             modalBody.innerHTML = `
-                <div class="flex flex-col items-center justify-center py-12 text-slate-400 space-y-3">
-                    <i data-lucide="loader-2" class="w-8 h-8 animate-spin text-brand-400"></i>
-                    <p class="text-xs">Analyzing all chronicle entries & synthesizing your cognitive workflow report...</p>
+                <div class="flex flex-col items-center justify-center py-10 text-slate-400 space-y-2">
+                    <i data-lucide="loader-2" class="w-6 h-6 animate-spin text-marina-400"></i>
+                    <p class="text-xs">Marina is synthesizing your learning journey and metacognitive report...</p>
                 </div>
             `;
             lucide.createIcons();
@@ -765,18 +819,18 @@ AI Output/Snippet: "${entry.output}"
 [${e.stage}] ${e.timestamp}:
 Thought: ${e.thought}
 Prompt: ${e.prompt}
-AI Strategy Tag: ${e.aiAnalysis ? e.aiAnalysis.cognitiveStrategy : 'N/A'}
+Strategy: ${e.aiAnalysis ? e.aiAnalysis.cognitiveStrategy : 'N/A'}
             `).join('\n---\n');
 
-            const systemPrompt = `You are an educational evaluator synthesizing a student's metacognitive process report for a project where they worked alongside AI.
-Format your response nicely with clear section headings:
-1. Executive Summary of AI Workflow
-2. Key Problem-Solving & Prompt Engineering Evolution
-3. Metacognitive Strengths (How effectively did the student critique, test, and direct the AI?)
-4. Recommended Next Steps for Workflow Optimization`;
+            const systemPrompt = `You are Marina, an educational evaluator. Synthesize a concise, polished student metacognitive process report based on their logged thoughts.
+Format clearly into:
+1. Executive Summary of AI Collaboration
+2. Metacognitive & Prompt Evolution Highlights
+3. Verification & Critical Thinking Strengths
+4. Next Steps for Optimization`;
 
             const payload = {
-                contents: [{ parts: [{ text: `Project: ${projectTitle}\n\nChronicle Entries:\n${chronicleData}` }] }],
+                contents: [{ parts: [{ text: `Project: ${projectTitle}\n\nLogged Thinking:\n${chronicleData}` }] }],
                 systemInstruction: { parts: [{ text: systemPrompt }] }
             };
 
@@ -792,9 +846,9 @@ Format your response nicely with clear section headings:
 
                 if (reportText) {
                     modalBody.innerHTML = `
-                        <div class="prose prose-invert max-w-none text-xs leading-relaxed space-y-3">
-                            <div class="p-3 bg-brand-500/10 border border-brand-500/20 rounded-xl mb-4 text-brand-300">
-                                <strong>Project:</strong> ${escapeHtml(projectTitle)} | <strong>Total Logged Actions:</strong> ${entries.length}
+                        <div class="space-y-3 text-xs leading-relaxed">
+                            <div class="p-2.5 bg-marina-500/10 border border-marina-500/20 rounded-xl text-marina-300">
+                                <strong>Project:</strong> ${escapeHtml(projectTitle)} | <strong>Captured Thoughts:</strong> ${entries.length}
                             </div>
                             <div class="whitespace-pre-line text-slate-200">
                                 ${escapeHtml(reportText)}
@@ -803,7 +857,7 @@ Format your response nicely with clear section headings:
                     `;
                 }
             } catch (err) {
-                modalBody.innerHTML = `<p class="text-xs text-red-400">Failed to generate summary. Please check your connection and try again.</p>`;
+                modalBody.innerHTML = `<p class="text-xs text-red-400">Unable to generate summary report. Please try again.</p>`;
             }
         }
 
@@ -819,24 +873,24 @@ Format your response nicely with clear section headings:
             dummy.select();
             document.execCommand("copy");
             document.body.removeChild(dummy);
-            alert("Summary copied to clipboard!");
+            alert("Marina synthesis report copied to clipboard!");
         }
 
-        // Export Full Log as Markdown File
+        // Export Log as Markdown
         function exportChronicle() {
             const projectTitle = document.getElementById('projectTitle').value;
-            let md = `# AI Thought Chronicle: ${projectTitle}\n`;
-            md += `*Generated via Synapse Log on ${new Date().toLocaleDateString()}*\n\n`;
+            let md = `# Marina Thought Log: ${projectTitle}\n`;
+            md += `*Captured on ${new Date().toLocaleDateString()}*\n\n`;
             md += `---\n\n`;
 
             entries.forEach((e, idx) => {
-                md += `### ${entries.length - idx}. [${e.stage}] ${e.date} at ${e.timestamp}\n`;
-                if (e.thought) md += `**Thought / Reflection:** ${e.thought}\n\n`;
-                if (e.prompt) md += `**Prompt Used:** \`${e.prompt}\` \n\n`;
-                if (e.output) md += `**AI Output Snippet:**\n\`\`\`\n${e.output}\n\`\`\`\n\n`;
+                md += `### ${entries.length - idx}. [${e.stage}] ${e.date} ${e.timestamp}\n`;
+                if (e.thought) md += `**Note:** ${e.thought}\n\n`;
+                if (e.prompt) md += `**Prompt:** \`${e.prompt}\` \n\n`;
+                if (e.output) md += `**AI Output:**\n\`\`\`\n${e.output}\n\`\`\`\n\n`;
                 if (e.aiAnalysis) {
-                    md += `> **Metacognitive Strategy:** ${e.aiAnalysis.cognitiveStrategy}\n`;
-                    md += `> **Reflection Question:** ${e.aiAnalysis.probingQuestion}\n\n`;
+                    md += `> **Strategy:** ${e.aiAnalysis.cognitiveStrategy}\n`;
+                    md += `> **Reflection:** ${e.aiAnalysis.probingQuestion}\n\n`;
                 }
                 md += `---\n\n`;
             });
@@ -845,7 +899,7 @@ Format your response nicely with clear section headings:
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `${projectTitle.toLowerCase().replace(/\s+/g, '_')}_ai_chronicle.md`;
+            a.download = `${projectTitle.toLowerCase().replace(/\s+/g, '_')}_marina_log.md`;
             a.click();
             URL.revokeObjectURL(url);
         }
